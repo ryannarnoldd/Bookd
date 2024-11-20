@@ -1,4 +1,5 @@
 import {
+
   Model,
   type InferAttributes,
   type InferCreationAttributes,
