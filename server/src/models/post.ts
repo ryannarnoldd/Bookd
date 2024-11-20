@@ -5,7 +5,6 @@ import {
     type CreationOptional,
     DataTypes,
     type ForeignKey,
-    type BelongsToManyAddAssociationMixin,
     type Sequelize,
   } from 'sequelize';
   
