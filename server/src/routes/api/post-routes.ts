@@ -9,6 +9,7 @@ router.get('/', async (_req: Request, res: Response) => {
     console.log('GETTING POSTS!')
     try {
         const posts = await Post.findAll({});
+
         res.json(posts);
     } catch (error: any) {
         res.status(500).json({ message: error.message });
