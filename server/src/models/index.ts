@@ -7,7 +7,7 @@ const Post = PostFactory(sequelize);
 
 User.hasMany(Post, {
     onDelete: 'CASCADE',
-    foreignKey: 'userId'
+    foreignKey: 'postUser'
 });
   
 Post.belongsTo(User);

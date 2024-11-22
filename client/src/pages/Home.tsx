@@ -1,6 +1,6 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 // import { retrieveUsers } from "../api/userAPI";
-import { retrievePosts } from "../api/PostsAPI";
+import { retrieveUserPosts } from "../api/PostsAPI";
 // import type { UserData } from "../interfaces/UserData";
 import type { PostData } from "../interfaces/PostData";
 import ErrorPage from "./ErrorPage";
@@ -31,8 +31,10 @@ const Home = () => {
 
     const fetchPosts = async () => {
         try {
-            const data = await retrievePosts();
-            setPosts(data)
+            if (auth.getProfile().username) {
+                const data = await retrieveUserPosts(auth.getProfile().username);
+                setPosts(data)
+            }
         } catch (err) {
             console.error('Failed to retrieve tickets:', err);
             setError(true);

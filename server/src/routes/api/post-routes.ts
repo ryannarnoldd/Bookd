@@ -16,21 +16,34 @@ router.get('/', async (_req: Request, res: Response) => {
     }
 });
 
-// declare id: CreationOptional<number>;
-// declare userId: ForeignKey<User['id']>;
-// declare title: string;
-// declare author: string;
-// declare rating: number;
-// declare review: string;
 
 
 // GET /posts/:id - Get a post by id
-router.get('/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
+// router.get('/:id', async (req: Request, res: Response) => {
+//     const { id } = req.params;
+//     try {
+//         const post = await Post.findByPk(id, {});
+//         if (post) {
+//             res.json(post);
+//         } else {
+//             res.status(404).json({ message: 'Post not found' });
+//         }
+//     } catch (error: any) {
+//         res.status(500).json({ message: error.message });
+//     }
+// });
+
+// GET /posts/:postUser
+router.get('/:postUser', async (req: Request, res: Response) => {
+    const { postUser } = req.params;
     try {
-        const post = await Post.findByPk(id, {});
-        if (post) {
-            res.json(post);
+        const posts = await Post.findAll({
+            where: {"postUser": postUser}
+        });
+            
+            
+        if (posts) {
+            res.json(posts);
         } else {
             res.status(404).json({ message: 'Post not found' });
         }
@@ -41,9 +54,9 @@ router.get('/:id', async (req: Request, res: Response) => {
 
 // Post /Posts - Create a new Post
 router.post('/', async (req: Request, res: Response) => {
-    const { userId, title, author, rating, review } = req.body;
+    const { postUser, title, author, rating, review } = req.body;
     try {
-        const newPost = await Post.create({ userId, title, author, rating, review });
+        const newPost = await Post.create({ postUser, title, author, rating, review });
         res.status(201).json(newPost);
     } catch (error: any) {
         res.status(400).json({ message: error.message });
