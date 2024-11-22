@@ -9,7 +9,6 @@ const Login = () => {
     username: '',
     password: '',
   });
-
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
