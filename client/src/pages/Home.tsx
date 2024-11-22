@@ -1,19 +1,21 @@
 import { useState, useEffect, useLayoutEffect } from "react";
-import { retrieveUsers } from "../api/userAPI";
-import type { UserData } from "../interfaces/UserData";
+// import { retrieveUsers } from "../api/userAPI";
+import { retrievePosts } from "../api/PostsAPI";
+// import type { UserData } from "../interfaces/UserData";
+import type { PostData } from "../interfaces/PostData";
 import ErrorPage from "./ErrorPage";
-import UserList from '../components/Users';
+import PostList from '../components/Post';
 import auth from '../utils/auth';
 
 const Home = () => {
 
-    const [users, setUsers] = useState<UserData[]>([]);
+    const [posts, setPosts] = useState<PostData[]>([]);
     const [error, setError] = useState(false);
     const [loginCheck, setLoginCheck] = useState(false);
 
     useEffect(() => {
         if (loginCheck) {
-            fetchUsers();
+            fetchPosts();
         }
     }, [loginCheck]);
 
@@ -27,10 +29,10 @@ const Home = () => {
         }
     };
 
-    const fetchUsers = async () => {
+    const fetchPosts = async () => {
         try {
-            const data = await retrieveUsers();
-            setUsers(data)
+            const data = await retrievePosts();
+            setPosts(data)
         } catch (err) {
             console.error('Failed to retrieve tickets:', err);
             setError(true);
@@ -51,7 +53,7 @@ const Home = () => {
                         </h1>
                     </div>
                 ) : (
-                    <UserList users={users} />
+                    <PostList posts={posts} />
                 )}
         </>
     );
