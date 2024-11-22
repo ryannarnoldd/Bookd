@@ -12,25 +12,16 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
     return (
         <>
             <h2 className="pb-5">
-               Hey {auth.getProfile().username}, Check out all your friends!
+               Hey {auth.getProfile().username}, Check out all the posts from you and your friends!
             </h2>
+
             {posts && posts.map((post) => (
-                <div className="row align-center mb-5" key={post.userID}>
-                    <div className="col-md-6">
-                        <h3>{post.userID}</h3>
-                    </div>
-                    <div className="col-md-6">
-                        <h3>{post.title}</h3>
-                    </div>
-                    <div className="col-md-6">
-                        <h3>{post.author}</h3>
-                    </div>
-                    <div className="col-md-6">
-                        <h3>{post.rating}</h3>
-                    </div>
-                    <div className="col-md-6">
-                        <h3>{post.review}</h3>
-                    </div>
+                <div className="card">
+                    <label className='label'>User: </label> <p className='info'>{post.postUser}</p>
+                    <label className='label'>Title: </label> <p className='info'>{post.title}</p>
+                    <label className='label'>Author: </label> <p className='info'>{post.author}</p>
+                    <label className='label'>Rating: </label> <p className='info'>{post.rating}/10</p>
+                    <label className='label'>Review: </label> <p className='info'>{post.review}</p>
                 </div>
             ))}
         </>

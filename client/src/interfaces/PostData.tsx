@@ -1,5 +1,5 @@
 export interface PostData {
-    userID: number | null;
+    postUser: string | null;
     title: string | null;
     author: string | null;
     rating: number | null;
