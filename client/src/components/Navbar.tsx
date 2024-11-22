@@ -25,6 +25,10 @@ const Navbar = () => {
             <Link to='/login'>Login</Link>
           </button>
         ) : (
+          <div>
+          <button className='btn' type='button'>
+            <Link to='/create'>Create</Link>
+          </button>
           <button
             className='btn'
             type='button'
@@ -34,6 +38,8 @@ const Navbar = () => {
           >
             Logout
           </button>
+          </div>
+
         )}
       </div>
     </div>
