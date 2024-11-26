@@ -70,5 +70,26 @@ const createPost = async (body: PostData) => {
     return Promise.reject('Could not create ticket');
   }
 }
+const deletePost = async (postid: number)=> {
+  try {
+    const response = await fetch(
+      '/api/posts/', {
+        method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${Auth.getToken()}`
+          },
+        body: JSON.stringify(postid)
+      }
 
-export { retrieveAllPosts, retrieveUserPosts, createPost };
+    )
+    // const data = response.json();
+
+    if(!response.ok) {
+      throw new Error('invalid API response, check network tab!');
+    }
+}
+  catch (err){ console.log('Error from Ticket Creation: ', err);
+    return Promise.reject('Could not create ticket');
+  }}
+export { retrieveAllPosts, retrieveUserPosts, createPost, deletePost };
