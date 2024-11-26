@@ -1,4 +1,5 @@
 import type { UserLogin } from '../interfaces/UserLogin';
+import { UserSignUp } from '../interfaces/UserSignUp';
 
 const login = async (userInfo: UserLogin) => {
   try {
@@ -23,4 +24,29 @@ const login = async (userInfo: UserLogin) => {
   }
 };
 
-export { login };
+const signUp = async (userInfo: UserSignUp) => {
+  try {
+    const response = await fetch('/auth/signup', { // Use the correct endpoint for user creation
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userInfo),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      // Optionally include the server-provided message for better debugging
+      const errorMessage = data.message || 'Sign-up failed, check network tab!';
+      throw new Error(errorMessage);
+    }
+
+    return data;
+  } catch (err) {
+    console.error('Error from user sign-up: ', err);
+    return Promise.reject('Could not create user');
+  }
+};
+
+export { login , signUp};

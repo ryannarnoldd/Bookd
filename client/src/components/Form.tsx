@@ -9,7 +9,6 @@ function PostForm() {
     const [author, setAuthor] = useState('');
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
-    // const [id, setId] = useState('');
     const navigate = useNavigate();
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

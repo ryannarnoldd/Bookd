@@ -4,12 +4,10 @@ import auth from '../utils/auth';
 import Form from "../components/Form";
 import { useLayoutEffect, useState } from 'react';
 
-const Home = () => {
+const CreatePost = () => {
 
     const [loginCheck, setLoginCheck] = useState(false);
-
- 
-
+    
     useLayoutEffect(() => {
         checkLogin();
     }, []);
@@ -37,4 +35,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default CreatePost;
