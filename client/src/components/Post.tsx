@@ -1,30 +1,48 @@
 import React from 'react';
-
 import type { PostData } from "../interfaces/PostData";
 import auth from '../utils/auth';
 
-// Define the props for the component
 interface PostListProps {
     posts: PostData[] | null; // Posts can be an array of PostData objects or null
 }
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
+    const username = auth.getProfile().username;
+
     return (
-        <>
-            <h2 className="pb-5">
-               Hey {auth.getProfile().username}, Check out all the posts from you and your friends!
+        <div className="container mt-5">
+            <h2 className="pb-4 text-center">
+                Hey <strong>{username}</strong>, check out all the posts from you and your friends!
             </h2>
 
-            {posts && posts.map((post) => (
-                <div className="card">
-                    <label className='label'>User: </label> <p className='info'>{post.postUser}</p>
-                    <label className='label'>Title: </label> <p className='info'>{post.title}</p>
-                    <label className='label'>Author: </label> <p className='info'>{post.author}</p>
-                    <label className='label'>Rating: </label> <p className='info'>{post.rating}/10</p>
-                    <label className='label'>Review: </label> <p className='info'>{post.review}</p>
+            {posts && posts.length > 0 ? (
+                <div className="row">
+                    {posts.map((post, index) => (
+                        <div className="col-md-6 mb-4" key={index}>
+                            <div className="card shadow-sm">
+                                <div className="card-body">
+                                    <h5 className="card-title text-primary">{post.title}</h5>
+                                    <h6 className="card-subtitle mb-2 text-muted">by {post.author}</h6>
+                                    <p className="card-text">
+                                        <strong>User:</strong> {post.postUser}
+                                    </p>
+                                    <p className="card-text">
+                                        <strong>Rating:</strong> {post.rating}/10
+                                    </p>
+                                    <p className="card-text">
+                                        <strong>Review:</strong> {post.review}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </>
+            ) : (
+                <div className="alert alert-info text-center" role="alert">
+                    No posts to display. Create some and check back!
+                </div>
+            )}
+        </div>
     );
 };
 
