@@ -9,8 +9,11 @@ interface PostListProps {
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
     const username = auth.getProfile().username;
-    const handleClick=async(post:PostData):Promise<void>=>{
-        await deletePost (post.id)
+    const handleClick = async (post: PostData): Promise<void> => {
+        if (post.id) {
+            await deletePost(post.id)
+            window.location.reload();
+        }
     }
     return (
         <div className="container mt-5">
@@ -32,10 +35,10 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
                                     <p className="card-text">
                                         <strong>Rating:</strong> {post.rating}/10
                                     </p>
-                                    <p className="card-text"> 
+                                    <p className="card-text">
                                         <strong>Review:</strong> {post.review}
                                     </p>
-                                    <button onClick={()=>handleClick(post)}>delete</button>
+                                    <button onClick={() => handleClick(post)}>delete</button>
                                 </div>
                             </div>
                         </div>
