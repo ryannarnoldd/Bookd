@@ -9,7 +9,8 @@ function PostForm() {
     const [author, setAuthor] = useState('');
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
-    const navigate = useNavigate(); 
+    // const [id, setId] = useState('');
+    const navigate = useNavigate();
 
     const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -31,12 +32,12 @@ function PostForm() {
             <form onSubmit={handleFormSubmit} className="border">
                 <div className="mb-3">
                     <label className="form-label">Title</label>
-                    <input type="text" className="form-control" id="title" placeholder="Enter title" value={title}onChange={(e) => setTitle(e.target.value)}/>
+                    <input type="text" className="form-control" id="title" placeholder="Enter title" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
 
                 <div className="mb-3">
                     <label className="form-label">Author</label>
-                    <input type="text" className="form-control" id="author" placeholder="Enter author" value={author} onChange={(e) => setAuthor(e.target.value)}/>
+                    <input type="text" className="form-control" id="author" placeholder="Enter author" value={author} onChange={(e) => setAuthor(e.target.value)} />
                 </div>
 
                 <div className="mb-3">
