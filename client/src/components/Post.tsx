@@ -1,6 +1,7 @@
 import React from 'react';
 import type { PostData } from "../interfaces/PostData";
 import auth from '../utils/auth';
+import { deletePost } from '../api/PostsAPI';
 
 interface PostListProps {
     posts: PostData[] | null; // Posts can be an array of PostData objects or null
@@ -8,7 +9,9 @@ interface PostListProps {
 
 const PostList: React.FC<PostListProps> = ({ posts }) => {
     const username = auth.getProfile().username;
-
+    const handleClick=async(post:PostData):Promise<void>=>{
+        await deletePost (post.id)
+    }
     return (
         <div className="container mt-5">
             <h2 className="pb-4 text-center">
@@ -29,9 +32,10 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
                                     <p className="card-text">
                                         <strong>Rating:</strong> {post.rating}/10
                                     </p>
-                                    <p className="card-text">
+                                    <p className="card-text"> 
                                         <strong>Review:</strong> {post.review}
                                     </p>
+                                    <button onClick={()=>handleClick(post)}>delete</button>
                                 </div>
                             </div>
                         </div>
