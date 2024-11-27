@@ -17,6 +17,7 @@ const Navbar = () => {
   }, [loginCheck]);
 
   return (
+
     <div className="d-flex justify-content-between align-items-center py-2 px-5" style={{ backgroundColor: '#f5f5dc' }}>
       <h1 style={{ margin: 0 }}>Bookd</h1>
       <div className="d-flex gap-2">
@@ -27,6 +28,7 @@ const Navbar = () => {
           <button className="btn btn-success" type="button">
             <Link to="/login" className="text-white text-decoration-none">Login</Link>
           </button>
+          </div>
         ) : (
           <>
             <button className="btn btn-primary" type="button">
