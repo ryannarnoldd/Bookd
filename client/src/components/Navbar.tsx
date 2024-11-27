@@ -25,19 +25,22 @@ const Navbar = () => {
           <Link to="/mainfeed" className="text-white text-decoration-none">Main Feed</Link>
         </button>
         {!loginCheck ? (
-          <div>ç
-          <button className="btn btn-success" type="button">
-            <Link to="/login" className="text-white text-decoration-none">Login</Link>
-          </button>
-          <button className="btn btn-success" type="button">
-          <Link to="/signup" className="text-white text-decoration-none">SignUp/</Link>
-        </button>
-        </div>
+          <div className="d-flex gap-2">
+            <button className="btn btn-success" type="button">
+              <Link to="/login" className="text-white text-decoration-none">Login</Link>
+            </button>
+            <button className="btn btn-success" type="button">
+              <Link to="/signup" className="text-white text-decoration-none">Sign Up</Link>
+            </button>
+          </div>
         ) : (
-          
+
           <>
             <button className="btn btn-primary" type="button">
               <Link to="/create" className="text-white text-decoration-none">Create</Link>
+            </button>
+            <button className="btn btn-primary" type="button">
+              <Link to="/" className="text-white text-decoration-none">Home</Link>
             </button>
             <button
               className="btn btn-danger"
