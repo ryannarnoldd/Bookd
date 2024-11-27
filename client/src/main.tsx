@@ -10,7 +10,7 @@ import Login from './pages/Login.tsx';
 
 import SignUp from './pages/SignUp.tsx';
 
-import CreatePosts from './pages/CreatePosts.tsx';
+import CreatePost from './pages/CreatePost.tsx';
 import AllPosts from './pages/AllPosts.tsx';
 
 
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/create',
-        element: <CreatePosts />
+        element: <CreatePost />
       },
       {
         path: '/mainfeed',
