@@ -8,6 +8,7 @@ import ErrorPage from './pages/ErrorPage.tsx';
 import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 import CreatePosts from './pages/CreatePosts.tsx';
+import AllPosts from './pages/AllPosts.tsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: '/create',
         element: <CreatePosts />
+      },
+      {
+        path: '/mainfeed',
+        element: <AllPosts />
       }
     ],
   },
