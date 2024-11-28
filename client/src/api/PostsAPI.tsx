@@ -44,6 +44,29 @@ const retrieveAllPosts = async () => {
   }
 };
 
+const getPostByID = async (id: string) => {
+  try {
+    const response = await fetch(`/api/posts/post/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${Auth.getToken()}`,
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error('Invalid API response, check network tab!');
+    }
+
+    return data;
+  } catch (err) {
+    console.error('Error retrieving post by ID:', err);
+    return null;
+  }
+};
+
+
 const createPost = async (body: PostData) => {
   try {
     const response = await fetch(
@@ -70,6 +93,35 @@ const createPost = async (body: PostData) => {
     return Promise.reject('Could not create ticket');
   }
 }
+
+const updatePost = async (id: string, body: PostData) => {
+  try {
+    const response = await fetch(
+      `/api/posts/${id}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${Auth.getToken()}`
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error('Invalid API response, check network tab!');
+    }
+    return data;
+
+  } catch (err) {
+    console.error('Error from Post Update:', err);
+    return Promise.reject('Could not update post');
+  }
+};
+
+
 const deletePost = async (postid: number) => {
   const deleteId = `/api/posts/${postid}`;
   try {
@@ -95,4 +147,4 @@ const deletePost = async (postid: number) => {
     return Promise.reject('Could not create ticket');
   }
 }
-export { retrieveAllPosts, retrieveUserPosts, createPost, deletePost };
+export { retrieveAllPosts, retrieveUserPosts, createPost, deletePost, updatePost, getPostByID };
