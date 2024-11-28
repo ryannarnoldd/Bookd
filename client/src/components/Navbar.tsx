@@ -21,9 +21,6 @@ const Navbar = () => {
     <div className="d-flex justify-content-between align-items-center py-2 px-5" style={{ backgroundColor: '#f5f5dc' }}>
       <h1 style={{ margin: 0 }}>Bookd</h1>
       <div className="d-flex gap-2">
-        <button className="btn btn-primary" type="button">
-          <Link to="/mainfeed" className="text-white text-decoration-none">Main Feed</Link>
-        </button>
         {!loginCheck ? (
           <div className="d-flex gap-2">
             <button className="btn btn-success" type="button">
@@ -37,7 +34,7 @@ const Navbar = () => {
 
           <>
             <button className="btn btn-primary" type="button">
-              <Link to="/create" className="text-white text-decoration-none">Create</Link>
+              <Link to="/mainfeed" className="text-white text-decoration-none">Main Feed</Link>
             </button>
             <button className="btn btn-primary" type="button">
               <Link to="/" className="text-white text-decoration-none">Home</Link>

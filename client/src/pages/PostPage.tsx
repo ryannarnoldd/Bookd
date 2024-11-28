@@ -1,8 +1,6 @@
-// import { retrieveUsers } from "../api/userAPI";
-// import type { UserData } from "../interfaces/UserData";
 import auth from '../utils/auth';
-import Form from "../components/Form";
 import { useLayoutEffect, useState } from 'react';
+import PostForm from '../components/PostForm';
 
 const CreatePost = () => {
 
@@ -29,7 +27,9 @@ const CreatePost = () => {
                         </h1>
                     </div>
                 ) : (
-                    <Form />
+                    <h1>
+                        <PostForm mode={'create'} />
+                    </h1>
                 )}
         </>
     );

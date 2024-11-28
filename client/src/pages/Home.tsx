@@ -4,6 +4,7 @@ import type { PostData } from "../interfaces/PostData";
 import ErrorPage from "./ErrorPage";
 import auth from '../utils/auth';
 import Post from '../components/Post';
+import { Link } from "react-router-dom";
 
 const Home = () => {
     const [posts, setPosts] = useState<PostData[]>([]);
@@ -52,6 +53,9 @@ const Home = () => {
                 </div>
             ) : (
                 <div className="row">
+                    <button className="btn btn-primary" type="button">
+                        <Link to="/create" className="text-white text-decoration-none">Create</Link>
+                    </button>
                     {posts.length > 0 ? (
                         posts.map((post) => (
                             <Post

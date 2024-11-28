@@ -3,16 +3,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 
 import App from './App.tsx';
-
 import ErrorPage from './pages/ErrorPage.tsx';
 import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
-
 import SignUp from './pages/SignUp.tsx';
-
-import CreatePost from './pages/CreatePost.tsx';
+import CreatePost from './pages/PostPage.tsx';
 import AllPosts from './pages/AllPosts.tsx';
-
+import PostForm from './components/PostForm.tsx';
 
 const router = createBrowserRouter([
   {
@@ -39,8 +36,13 @@ const router = createBrowserRouter([
       {
         path: '/mainfeed',
         element: <AllPosts />
-      }
-    ],
+      },
+      {
+        // There must be a better way of this.
+        path: '/posts/update/:id',
+        element: <PostForm mode={'update'} />
+      }   
+    ]
   },
 ]);
 
