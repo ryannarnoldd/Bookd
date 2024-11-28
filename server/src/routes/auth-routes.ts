@@ -9,13 +9,17 @@ export const login = async (req: Request, res: Response) => {
   const user = await User.findOne({
     where: { username },
   });
+
   if (!user) {
-    return res.status(401).json({ message: 'Authentication failed' });
+    return res.status(401).json({ message: 'Authentication failed1' });
   }
 
+  console.log(user)
+
+  console.log(password, '    ', user.password)
   const passwordIsValid = await bcrypt.compare(password, user.password);
   if (!passwordIsValid) {
-    return res.status(401).json({ message: 'Authentication failed' });
+    return res.status(401).json({ message: 'Authentication failed2' });
   }
 
   const secretKey = process.env.JWT_SECRET_KEY || '';
@@ -36,15 +40,15 @@ export const signUp = async (req: Request, res: Response) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Hash the password
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    // THE HASHED PASSWORD IS NOT WORKING. THAT IS WHY SEED USERS ONLY WORK.
+    // const saltRounds = 10;
+    // const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Create a new user
     const newUser = await User.create({
       username,
       email,
-      password: hashedPassword,
+      password
     });
 
     // Generate a token for immediate login after signup
