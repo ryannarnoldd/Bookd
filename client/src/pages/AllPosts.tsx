@@ -4,7 +4,7 @@ import { retrieveAllPosts } from "../api/PostsAPI";
 // import type { UserData } from "../interfaces/UserData";
 import type { PostData } from "../interfaces/PostData";
 import ErrorPage from "./ErrorPage";
-import PostList from '../components/Post';
+import Post from '../components/Post';
 import auth from '../utils/auth';
 
 const AllPosts = () => {
@@ -45,18 +45,41 @@ const AllPosts = () => {
         return <ErrorPage />;
     }
 
+    const handlePostDelete = (deletedPostId: number) => {
+        setPosts((prevPosts) => prevPosts.filter((post) => post.id !== deletedPostId));
+    };
+
+    if (error) {
+        return <ErrorPage />;
+    }
+
+
     return (
         <>
-            {
-                !loginCheck ? (
-                    <div className='login-notice'>
-                        <h1>
-                            Login to view all your friends!
-                        </h1>
-                    </div>
-                ) : (
-                    <PostList posts={posts} />
-                )}
+            {!loginCheck ? (
+                <div className="login-notice">
+                    <h1>Login to view all your posts!</h1>
+                </div>
+            ) : (
+                <div className="row">
+                    {posts.length > 0 ? (
+                        posts.map((post) => (
+                            <Post
+                                key={post.id}
+                                id={post.id}
+                                postUser={post.postUser}
+                                title={post.title}
+                                author={post.author}
+                                rating={post.rating}
+                                review={post.review}
+                                onDelete={handlePostDelete} // Pass the callback
+                            />
+                        ))
+                    ) : (
+                        <h2>No posts to display</h2>
+                    )}
+                </div>
+            )}
         </>
     );
 };
