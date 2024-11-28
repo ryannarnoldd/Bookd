@@ -19,19 +19,19 @@ router.get('/', async (_req: Request, res: Response) => {
 
 
 // GET /posts/:id - Get a post by id
-router.get('/:id', async (req: Request, res: Response) => {
-    const { id } = req.params;
-    try {
-        const post = await Post.findByPk(id, {});
-        if (post) {
-            res.json(post);
-        } else {
-            res.status(404).json({ message: 'Post not found' });
-        }
-    } catch (error: any) {
-        res.status(500).json({ message: error.message });
-    }
-});
+// router.get('/:id', async (req: Request, res: Response) => {
+//     const { id } = req.params;
+//     try {
+//         const post = await Post.findByPk(id, {});
+//         if (post) {
+//             res.json(post);
+//         } else {
+//             res.status(404).json({ message: 'Post not found' });
+//         }
+//     } catch (error: any) {
+//         res.status(500).json({ message: error.message });
+//     }
+// });
 
 // GET /posts/:postUser
 router.get('/:postUser', async (req: Request, res: Response) => {
