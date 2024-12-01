@@ -6,9 +6,11 @@ function App() {
   return (
     <div>
       <Navbar />
-      <main className='container pt-5'>
-        <Outlet />
-      </main>
+      <div style={{ backgroundColor: '#DCDCF5' }}>
+        <main className='container pt-5' style={{ backgroundColor: '#DCDCF5' }}>
+          <Outlet />
+        </main>
+      </div>
     </div>
   );
 }

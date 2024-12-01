@@ -53,7 +53,7 @@ const Home = () => {
                 </div>
             ) : (
                 <div className="row">
-                    <button className="btn btn-primary" type="button">
+                    <button className="btn btn-primary mb-3" type="button">
                         <Link to="/create" className="text-white text-decoration-none">Create</Link>
                     </button>
                     {posts.length > 0 ? (
