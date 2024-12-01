@@ -2,6 +2,7 @@ import type { PostData } from "../interfaces/PostData";
 import { deletePost } from "../api/PostsAPI";
 import { useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
+import { Link } from 'react-router-dom';
 
 interface PostProps extends PostData {
     onDelete: (id: number) => void;
@@ -37,11 +38,14 @@ const Post = ({ id, postUser, title, author, rating, review, onDelete }: PostPro
                             X
                         </button>
                     </h5>
-                    { postUser === auth.getProfile().username ? (<button className="btn btn-sm btn-secondary" onClick={updateCurr}> Update </button>)
-                    : "You are not allowed to update this post." }
+                    {postUser === auth.getProfile().username ? (<button className="btn btn-sm btn-secondary" onClick={updateCurr}> Update </button>)
+                        : "You are not allowed to update this post."}
                     <h6 className="card-subtitle mb-2 text-muted">by {author}</h6>
                     <p className="card-text">
-                        <strong>User:</strong> {postUser}
+                        {/* <strong>User:</strong> {postUser} */}
+                        <strong>
+                            User: <Link to={`/user/${postUser}`}>{postUser}</Link>
+                        </strong>
                     </p>
                     <p className="card-text">
                         <strong>Rating:</strong> {rating}/10

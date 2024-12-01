@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp.tsx';
 import CreatePost from './pages/PostPage.tsx';
 import AllPosts from './pages/AllPosts.tsx';
 import PostForm from './components/PostForm.tsx';
+import UserPosts from './pages/UserPosts.tsx';
 
 const router = createBrowserRouter([
   {
@@ -38,10 +39,14 @@ const router = createBrowserRouter([
         element: <AllPosts />
       },
       {
+        path: '/user/:postUser',
+        element: <UserPosts />
+      },
+      {
         // There must be a better way of this.
         path: '/posts/update/:id',
         element: <PostForm mode={'update'} />
-      }   
+      }
     ]
   },
 ]);
