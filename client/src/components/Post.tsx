@@ -31,15 +31,15 @@ const Post = ({ id, postUser, title, author, rating, review, onDelete }: PostPro
     return (
         <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
-                <div className="card-body">
+                <div className="card-body" style={{ backgroundColor: '#F5F5DC' }}>
                     <h5 className="card-title text-primary">
                         {title}{" "}
                         <button className="btn btn-sm btn-danger ms-2" onClick={deleteCurr}>
                             X
                         </button>
                     </h5>
-                    {postUser === auth.getProfile().username ? (<button className="btn btn-sm btn-secondary" onClick={updateCurr}> Update </button>)
-                        : "You are not allowed to update this post."}
+                    {postUser === auth.getProfile().username ? (<button className="btn btn-sm btn-secondary mb-2" onClick={updateCurr}> Update </button>)
+                        : <div className="mb-2">"You are not allowed to update this post." </div>}
                     <h6 className="card-subtitle mb-2 text-muted">by {author}</h6>
                     <p className="card-text">
                         {/* <strong>User:</strong> {postUser} */}
