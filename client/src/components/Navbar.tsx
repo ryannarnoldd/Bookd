@@ -34,10 +34,10 @@ const Navbar = () => {
 
           <>
             <button className="btn btn-primary" type="button">
-              <Link to="/mainfeed" className="text-white text-decoration-none">Main Feed</Link>
+              <Link to="/" className="text-white text-decoration-none">Home</Link>
             </button>
             <button className="btn btn-primary" type="button">
-              <Link to="/" className="text-white text-decoration-none">Home</Link>
+              <Link to="/mainfeed" className="text-white text-decoration-none">Main Feed</Link>
             </button>
             <button
               className="btn btn-danger"

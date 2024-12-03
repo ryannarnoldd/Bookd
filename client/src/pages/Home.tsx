@@ -49,6 +49,7 @@ const Home = () => {
         <>
             {!loginCheck ? (
                 <div className="login-notice">
+                    <h1>Welcome to Bookd!</h1>
                     <h1>Login to view all your posts!</h1>
                 </div>
             ) : (
