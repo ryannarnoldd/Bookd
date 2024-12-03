@@ -3,6 +3,7 @@ import Auth from '../utils/auth';
 import { login } from '../api/authAPI'; // Assuming login API function is separate
 import type { UserLogin } from '../interfaces/UserLogin';
 import background from '../../assets/123.avif';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [loginData, setLoginData] = useState<UserLogin>({
@@ -82,6 +83,7 @@ const Login = () => {
               Login
             </button>
           </div>
+          Don't have an account? Register <Link to={`/signup`}>Here!</Link>
         </form>
       </div>
     </div>

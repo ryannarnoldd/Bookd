@@ -43,7 +43,6 @@ const router = createBrowserRouter([
         element: <UserPosts />
       },
       {
-        // There must be a better way of this.
         path: '/posts/update/:id',
         element: <PostForm mode={'update'} />
       }

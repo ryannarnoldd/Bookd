@@ -47,9 +47,6 @@ const UserPosts = () => {
         <>
             <div className="row">
                 <h2>{user}'s Profile</h2>
-                {/* <button className="btn btn-primary" type="button">
-                    <Link to="/create" className="text-white text-decoration-none">Create</Link>
-                </button> */}
                 {posts.length > 0 ? (
                     posts.map((post) => (
                         <Post
@@ -64,7 +61,7 @@ const UserPosts = () => {
                         />
                     ))
                 ) : (
-                    <h2>No posts to display</h2>
+                    <h2>{user} has no posts to display!</h2>
                 )}
             </div>
         </>

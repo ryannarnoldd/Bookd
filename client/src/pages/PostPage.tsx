@@ -23,7 +23,7 @@ const CreatePost = () => {
                 !loginCheck ? (
                     <div className='login-notice'>
                         <h1>
-                            Login to view all your friends!
+                            Login to view all your posts!
                         </h1>
                     </div>
                 ) : (
