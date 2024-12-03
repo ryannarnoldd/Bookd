@@ -5,6 +5,7 @@ import ErrorPage from "./ErrorPage";
 import auth from '../utils/auth';
 import Post from '../components/Post';
 import { Link } from "react-router-dom";
+import background from '../../assets/123.avif';
 
 const Home = () => {
     const [posts, setPosts] = useState<PostData[]>([]);
@@ -46,9 +47,18 @@ const Home = () => {
     }
 
     return (
-        <>
+        <div
+            style={{
+                backgroundImage: `url(${background})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                minHeight: '100vh',
+                color: 'white', // Adjust text color for better contrast
+                padding: '20px',
+            }}
+        >
             {!loginCheck ? (
-                <div className="login-notice">
+                <div className="login-notice" style={{ textAlign: 'center' }}>
                     <h1>Welcome to Bookd!</h1>
                     <h1>Login to view all your posts!</h1>
                 </div>
@@ -75,7 +85,7 @@ const Home = () => {
                     )}
                 </div>
             )}
-        </>
+        </div>
     );
 };
 

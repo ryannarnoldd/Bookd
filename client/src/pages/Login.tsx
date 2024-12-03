@@ -2,6 +2,7 @@ import { useState, type FormEvent, type ChangeEvent } from 'react';
 import Auth from '../utils/auth';
 import { login } from '../api/authAPI'; // Assuming login API function is separate
 import type { UserLogin } from '../interfaces/UserLogin';
+import background from '../../assets/123.avif';
 
 const Login = () => {
   const [loginData, setLoginData] = useState<UserLogin>({
@@ -30,10 +31,30 @@ const Login = () => {
   };
 
   return (
-    <div className="container-fluid min-vh-100" style={{ backgroundColor: '#F5F5DC' }}>
-      <div className="form-container-fluid min-vh-100">
+    <div
+      className="container-fluid min-vh-100"
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        className="form-container"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.85)', // Semi-transparent background for the form
+          padding: '20px',
+          borderRadius: '8px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+          width: '100%',
+          maxWidth: '400px',
+        }}
+      >
         <form className="form login-form" onSubmit={handleSubmit}>
-          <h1>Login</h1>
+          <h1 style={{ textAlign: 'center' }}>Login</h1>
           <div className="form-group">
             <label>Username</label>
             <input
@@ -56,7 +77,7 @@ const Login = () => {
               required
             />
           </div>
-          <div className="form-group">
+          <div className="form-group" style={{ textAlign: 'center' }}>
             <button className="btn btn-primary" type="submit">
               Login
             </button>
