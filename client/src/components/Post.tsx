@@ -30,7 +30,7 @@ const Post = ({ id, postUser, title, author, rating, review, onDelete }: PostPro
 
     return (
         // <div className="container-fluid min-vh-100">
-        <div className="col-md-6 mb-4">"
+        <div className="col-md-6 mb-4">
             <div className="card shadow-sm">
                 <div className="card-body" style={{ backgroundColor: '#F5F5DC' }}>
                     <h5 className="card-title text-primary">
