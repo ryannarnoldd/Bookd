@@ -25,6 +25,12 @@ https://bookd-t67i.onrender.com
 The usage of this application is simple. The user has to first make an account using their email and an username and password, of their choice. The user can create posts about books that they read. They can also update and delete, only their own posts. The user can also view a certain user's post, by clicking on their name link. And go to their home feed to see what everyone else has been reading.
 
 
+![Bookd](./client/assets/image.png)
+![Bookd](./client/assets/111.png)
+![Bookd](./client/assets/222.png)
+
+
+
 ## Contributing
 
 All members of the Full-Stack Bootcamp:
