@@ -26,9 +26,9 @@ const Navbar = () => {
             <button className="btn btn-success" type="button">
               <Link to="/login" className="text-white text-decoration-none">Login</Link>
             </button>
-            <button className="btn btn-success" type="button">
+            {/* <button className="btn btn-success" type="button">
               <Link to="/signup" className="text-white text-decoration-none">Sign Up</Link>
-            </button>
+            </button> */}
           </div>
         ) : (
 

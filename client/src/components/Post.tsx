@@ -35,15 +35,11 @@ const Post = ({ id, postUser, title, author, rating, review, onDelete }: PostPro
                 <div className="card-body" style={{ backgroundColor: '#F5F5DC' }}>
                     <h5 className="card-title text-primary">
                         {title}{" "}
-                        <button className="btn btn-sm btn-danger ms-2" onClick={deleteCurr}>
-                            X
-                        </button>
+                        {postUser === auth.getProfile().username ? (<button className="btn btn-sm btn-secondary mb-2" onClick={updateCurr}> Update </button>): <div></div>}{" "}
+                        {postUser === auth.getProfile().username ? (<button className="btn btn-sm btn-danger ms-2" onClick={deleteCurr}> X </button>): <div></div>}
                     </h5>
-                    {postUser === auth.getProfile().username ? (<button className="btn btn-sm btn-secondary mb-2" onClick={updateCurr}> Update </button>)
-                        : <div className="mb-2">"You are not allowed to update this post." </div>}
                     <h6 className="card-subtitle mb-2 text-muted">by {author}</h6>
                     <p className="card-text">
-                        {/* <strong>User:</strong> {postUser} */}
                         <strong>
                             User: <Link to={`/user/${postUser}`}>{postUser}</Link>
                         </strong>

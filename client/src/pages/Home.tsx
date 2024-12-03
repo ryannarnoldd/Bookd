@@ -60,12 +60,15 @@ const Home = () => {
             {!loginCheck ? (
                 <div className="login-notice" style={{ textAlign: 'center' }}>
                     <h1>Welcome to Bookd!</h1>
-                    <h1>Login to view all your posts!</h1>
+                    <br /><br />
+                    <h2>Discover, Review, and Share Your Reading Journey!</h2>
+                    <br />
+                    <h4>Bookd is your personal bookshelf companion, making it easy to keep track of the books you’ve read, plan your next read, and explore what others are enjoying. Whether you’re diving into the latest bestseller or rediscovering a classic, Bookd helps you stay organized and inspired.</h4>
                 </div>
             ) : (
                 <div className="row">
                     <button className="btn btn-primary mb-3" type="button">
-                        <Link to="/create" className="text-white text-decoration-none">Create</Link>
+                        <Link to="/create" className="text-white text-decoration-none">Create New Post!</Link>
                     </button>
                     {posts.length > 0 ? (
                         posts.map((post) => (
@@ -81,7 +84,7 @@ const Home = () => {
                             />
                         ))
                     ) : (
-                        <h2>No posts to display</h2>
+                        <h2>You do not have any posts yet!</h2>
                     )}
                 </div>
             )}
